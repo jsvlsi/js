@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Array Element</title>
+  </head>
+  <body>
+    <h1>Remove Specific Element from Array</h1>
+    <label for="arrayInput">Enter array elements (comma separated): </label>
+    <input
+      type="text"
+      id="arrayInput"
+      placeholder="e.g. 1, 2, 3, 4"
+    /><br /><br />
+    <label for="elementInput">Enter element to remove: </label>
+    <input type="text" id="elementInput" /><br /><br />
+    <button onclick="removeArrayElement()">Remove Element</button>
+    <p id="result"></p>
+
+    <script>
+      function removeArrayElement() {
+        // Get values from input fields
+        const arrayInput = document.getElementById("arrayInput").value;
+
+        // trim remove the white spaces before and after the number 
+        const elementToRemove = document.getElementById("elementInput").value.trim();
+
+
+        // Convert the input string to an array
+        let array = arrayInput.split(',').map(item => item.trim());
+
+        // Find the index of the element to remove
+        const index = array.indexOf(elementToRemove);
+
+        // Check if the element exists in the array
+        if (index !== -1) {
+          array.splice(index, 1); // Remove the element splice(IndexPos, how many)
+          document.getElementById("result").innerText = `Array after removal: [${array.join(', ')}]`;
+        } else {
+          document.getElementById("result").innerText = "Element Not Found!";
+        }
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+//second code
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Array Element</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Check if Array Contains a Value</h1>
+    <label for="arrayElements">Enter Array Elements (comma separated):</label>
+    <input type="text" id="arrayElements" placeholder="e.g. 1, 2, 3, 4, 5">
+    <br><br>
+    <label for="checkElement">Enter Element to Check:</label>
+    <input type="text" id="checkElement" placeholder="Enter value to check">
+    <br><br>
+    <button onclick="checkArrayElement()">Check Element</button>
+    <p id="result"></p>
+
+    <script>
+        function checkArrayElement() {
+            // Get the input value and split it into an array
+            let array = document.getElementById('arrayElements').value.split(',').map(item => item.trim());
+            // Get the element to check
+            let element = document.getElementById('checkElement').value.trim();
+            // Find the index of the element in the array
+            let index = array.indexOf(element);
+            // Display the result
+            document.getElementById('result').textContent = index !== -1
+                ? `Element "${element}" found at index ${index}`
+                : 'Element Not Found!';
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+//Third code
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty Array</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Array Manipulation</h1>
+    <label for="arrayElements">Enter Array Elements (comma separated): </label>
+    <input type="text" id="arrayElements" placeholder="e.g. 1, 2, 3, 4">
+    <button onclick="emptyArrayElements()">Empty Array</button>
+    <h2>Result:</h2>
+    <p id="result"></p>
+
+    <script>
+        function emptyArrayElements() {
+            // Get the input value from the text box
+            let input = document.getElementById("arrayElements").value;
+            // Split the input string into an array, trimming any whitespace
+            let arr = input.split(',').map(item => item.trim()); 
+            // Empty the array by setting its length to 0
+            arr.length = 0;
+            // Display the emptied array
+            document.getElementById("result").innerText = `Array is now: [${arr}]`;
+        }
+    </script>
+</body>
+</html>
